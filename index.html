@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qlixify</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Comfortaa', sans-serif;
+      background-color: #87CEEB;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 20px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #FFFFFF;
+      color: #87CEEB;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #E0FFFF;
+    }
+
+    .iframe-container {
+      margin-top: 30px;
+    }
+
+    .home-button {
+      margin-top: 20px;
+      background-color: transparent;
+      border: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: underline;
+    }
+
+    .home-button:hover {
+      color: #E0FFFF;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Qlixify</h1>
+    <p> A way to place your Qlix Profile in your own website!</p>
+    <p>Paste your Qlix profile link below:</p>
+    <input type="text" id="qlixLink" placeholder="Enter your Qlix profile link">
+    <button onclick="generateIframe()">Generate</button>
+    <div class="iframe-container" id="iframeContainer"></div>
+    <button class="home-button" onclick="goHome()">Go Home</button>
+  </div>
+<footer>
+  &copy; 2019-2024 Micromac Corp
+</footer>
+  <script>
+    function generateIframe() {
+            const link = document.getElementById('qlixLink').value;
+            const regex = /^https:\/\/oldsoultechy1\.wixsite\.com\/website\/profile\/[^/]+\/profile$/;
+            
+            if (regex.test(link)) {
+                const iframeCode = `<iframe src="${link}" width="600" height="400"></iframe>`;
+                document.getElementById('iframeContainer').innerHTML = `
+                    <p>Copy and paste this HTML code into your website:</p>
+                    <textarea rows="4" cols="50" readonly>${iframeCode}</textarea>
+                    <div>${iframeCode}</div>
+                `;
+            } else {
+                document.getElementById('iframeContainer').innerHTML = `<p style="color: red;">Invalid link. Please make sure it follows the format: https://oldsoultechy1.wixsite.com/website/profile/(username)/profile</p>`;
+            }
+        }
+
+        function goHome() {
+            window.location.href = 'https://oldsoultechy1.wixsite.com/website';
+        }
+  </script>
+</body>
+
+</html>
