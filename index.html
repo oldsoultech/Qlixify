@@ -77,30 +77,33 @@
     <button onclick="generateIframe()">Generate</button>
     <div class="iframe-container" id="iframeContainer"></div>
     <button class="home-button" onclick="goHome()">Go Home</button>
+    <a href="https://raw.githubusercontent.com/oldsoultech/Qlixify/main/README.txt">
+      <button>What's Qlixify?</button>
+    </a>
   </div>
-<footer>
-  &copy; 2019-2024 Micromac Corp
-</footer>
+  <footer>
+    &copy; 2019-2024 Micromac Corp
+  </footer>
   <script>
     function generateIframe() {
-            const link = document.getElementById('qlixLink').value;
-            const regex = /^https:\/\/oldsoultechy1\.wixsite\.com\/website\/profile\/[^/]+\/profile$/;
-            
-            if (regex.test(link)) {
-                const iframeCode = `<iframe src="${link}" width="600" height="400"></iframe>`;
-                document.getElementById('iframeContainer').innerHTML = `
-                    <p>Copy and paste this HTML code into your website:</p>
-                    <textarea rows="4" cols="50" readonly>${iframeCode}</textarea>
-                    <div>${iframeCode}</div>
-                `;
-            } else {
-                document.getElementById('iframeContainer').innerHTML = `<p style="color: red;">Invalid link. Please make sure it follows the format: https://oldsoultechy1.wixsite.com/website/profile/(username)/profile</p>`;
-            }
-        }
+      const link = document.getElementById('qlixLink').value;
+      const regex = /^https:\/\/oldsoultechy1\.wixsite\.com\/website\/profile\/[^/]+\/profile$/;
 
-        function goHome() {
-            window.location.href = 'https://oldsoultechy1.wixsite.com/website';
-        }
+      if (regex.test(link)) {
+        const iframeCode = `<iframe src="${link}" width="600" height="400"></iframe>`;
+        document.getElementById('iframeContainer').innerHTML = `
+          <p>Copy and paste this HTML code into your website:</p>
+          <textarea rows="4" cols="50" readonly>${iframeCode}</textarea>
+          <div>${iframeCode}</div>
+        `;
+      } else {
+        document.getElementById('iframeContainer').innerHTML = `<p style="color: red;">Invalid link. Please make sure it follows the format: https://oldsoultechy1.wixsite.com/website/profile/(username)/profile</p>`;
+      }
+    }
+
+    function goHome() {
+      window.location.href = 'https://oldsoultechy1.wixsite.com/website';
+    }
   </script>
 </body>
 
